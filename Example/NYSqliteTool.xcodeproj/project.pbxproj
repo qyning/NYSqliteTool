@@ -60,7 +60,6 @@
 				0E01024321605B4600A1508A /* Target_NYSqliteTool.swift */,
 				0E01024521605B8200A1508A /* NYSqliteManager.swift */,
 				0E01024721605C3400A1508A /* NYSqliteConst.swift */,
-				0E01026E216079CE00A1508A /* NYSqliteTool_Tests-Bridging-Header.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -88,6 +87,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0E01026E216079CE00A1508A /* NYSqliteTool_Tests-Bridging-Header.h */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
