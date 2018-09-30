@@ -39,7 +39,7 @@ a manager base FMDB and CTMediator
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.public_header_files = 'NYSqliteTool/Classes/*.h'
-  s.static_framework = true
+#s.static_framework = true
   s.requires_arc = true
 
   s.dependency 'FMDB'
