@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 a manager base FMDB and CTMediator
+a manager base FMDB and CTMediator
                        DESC
 
   s.homepage         = 'https://github.com/qyning/NYSqliteTool'
