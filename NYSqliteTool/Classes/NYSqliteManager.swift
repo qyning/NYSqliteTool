@@ -327,15 +327,17 @@ public extension NYSqliteManager {
         var sqls = [String]()
         for i in 0..<paramsArr.count{
             let params = paramsArr[i]
-            let type = params["sqlType"] as! sqlQueueType
+            let type = params["sqlType"] as! String
             var sql = ""
             switch type {
-            case .Inset:
+            case sqlQueueType.Inset.rawValue:
                 sql = updataSQL(params)
-            case .Update:
+            case sqlQueueType.Update.rawValue:
                 sql = updataSQL(params)
-            case .Delete:
+            case sqlQueueType.Delete.rawValue:
                 sql = deleteSQL(params)
+            default:
+                break
             }
             //            if type == sqlQueueType.Inset.rawValue{
             //                sql = insertSQL(params)
