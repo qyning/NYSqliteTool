@@ -1,0 +1,8 @@
+use_frameworks!
+target 'NYSqliteTool_Tests' do
+#  pod 'NYSqliteTool', :path => '../'
+    use_modular_headers!
+    use_frameworks!
+    pod 'CTMediator'
+    pod 'FMDB'
+end
