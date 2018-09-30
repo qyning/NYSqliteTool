@@ -20,6 +20,7 @@
 		0E01024321605B4600A1508A /* Target_NYSqliteTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target_NYSqliteTool.swift; sourceTree = "<group>"; };
 		0E01024521605B8200A1508A /* NYSqliteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYSqliteManager.swift; sourceTree = "<group>"; };
 		0E01024721605C3400A1508A /* NYSqliteConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYSqliteConst.swift; sourceTree = "<group>"; };
+		0E01026E216079CE00A1508A /* NYSqliteTool_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYSqliteTool_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1813EBBE14FC8583BEC939BC /* NYSqliteTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NYSqliteTool.podspec; path = ../NYSqliteTool.podspec; sourceTree = "<group>"; };
 		201E1D8040B502100C49BCE8 /* Pods-NYSqliteTool_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYSqliteTool_Tests.release.xcconfig"; path = "Target Support Files/Pods-NYSqliteTool_Tests/Pods-NYSqliteTool_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* NYSqliteTool_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYSqliteTool_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +60,7 @@
 				0E01024321605B4600A1508A /* Target_NYSqliteTool.swift */,
 				0E01024521605B8200A1508A /* NYSqliteManager.swift */,
 				0E01024721605C3400A1508A /* NYSqliteConst.swift */,
+				0E01026E216079CE00A1508A /* NYSqliteTool_Tests-Bridging-Header.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -162,7 +164,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = N79NWV53J9;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -363,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B315E46C93F68D1506ECE9E7 /* Pods-NYSqliteTool_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = N79NWV53J9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -376,6 +379,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../NYSqliteTool/Classes/NYSqliteTool_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYSqliteTool_Example.app/NYSqliteTool_Example";
@@ -386,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 201E1D8040B502100C49BCE8 /* Pods-NYSqliteTool_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = N79NWV53J9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -395,6 +401,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../NYSqliteTool/Classes/NYSqliteTool_Tests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYSqliteTool_Example.app/NYSqliteTool_Example";
