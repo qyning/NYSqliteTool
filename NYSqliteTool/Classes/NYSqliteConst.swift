@@ -8,10 +8,10 @@
 
 
 /// 数据库-增删改
-enum sqlQueueType:String {
-    case Inset = "Inset"
-    case Update = "Update"
-    case Delete = "Delete"
+@objc public enum sqlQueueType:Int {
+    case Inset = 1
+    case Update = 2
+    case Delete = 3
 }
 
 typealias ReturnBoolClosure = (Bool) -> Void

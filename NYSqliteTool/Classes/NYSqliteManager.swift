@@ -327,7 +327,7 @@ public extension NYSqliteManager {
         var sqls = [String]()
         for i in 0..<paramsArr.count{
             let params = paramsArr[i]
-            let type = params["sqlType"] as! String
+            let type = params["sqlType"] as! Int
             var sql = ""
             switch type {
             case sqlQueueType.Inset.rawValue:

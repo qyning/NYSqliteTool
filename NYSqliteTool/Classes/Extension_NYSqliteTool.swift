@@ -40,14 +40,14 @@ public extension CTMediator {
     ///   - tableName: 创建的表名
     ///   - sqlDataModel: 模型or字典
     /// - return: 创建表是否成功
-    public func SQL_createTable(tableName: String, sqlDataModel: Any) -> Bool? {
+    @objc public func SQL_createTable(tableName: String, sqlDataModel: Any) -> Bool {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
             "sqlDataModel": sqlDataModel
             ] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteCreateTable, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteCreateTable, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     /// 插入数据到表中
@@ -57,13 +57,13 @@ public extension CTMediator {
     ///   - sqlDataModel: 模型or字典
     /// - return: 插入数据是否成功
     
-    public func SQL_insertData(tableName: String, sqlDataModel: Any) -> Bool? {
+    @objc public func SQL_insertData(tableName: String, sqlDataModel: Any) -> Bool {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
             "sqlDataModel": sqlDataModel] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteInsertData, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteInsertData, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     /// 更新数据库中的数据
@@ -74,14 +74,14 @@ public extension CTMediator {
     ///   - whereCondition: 更新指定数据的条件
     /// - return: 更新数据是否成功
     
-    public func SQL_updataData(tableName: String, sqlDataModel: Any, whereCondition: String) -> Bool? {
+    @objc public func SQL_updataData(tableName: String, sqlDataModel: Any, whereCondition: String) -> Bool {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
             "sqlDataModel": sqlDataModel,
             "whereCondition": whereCondition] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteUpdataData, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteUpdataData, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     /// 删除数据库中的数据(可以删除所有数据)
@@ -91,13 +91,13 @@ public extension CTMediator {
     ///   - whereCondition: 删除指定数据的条件
     /// - return: 删除数据是否成功
     
-    public func SQL_deleteData(tableName: String, whereCondition: String) -> Bool? {
+    @objc public func SQL_deleteData(tableName: String, whereCondition: String) -> Bool {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
             "whereCondition": whereCondition] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteDeleteData, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteDeleteData, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     /// 获取指定表中指定的数据(包含所有数据)
@@ -107,7 +107,7 @@ public extension CTMediator {
     ///   - whereCondition: 获取数据的条件
     /// - return: 指定数据的集合
     
-    public func SQL_fetchAllData(tableName: String, whereCondition: String) -> Any? {
+    @objc public func SQL_fetchAllData(tableName: String, whereCondition: String) -> Any {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
@@ -120,12 +120,12 @@ public extension CTMediator {
     ///
     /// - Parameter tableName: 删除表的表名
     /// - return: 删除表是否成功
-    public func SQL_deleteTable(tableName: String) -> Bool?{
+    @objc public func SQL_deleteTable(tableName: String) -> Bool{
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteDeleteTable, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteDeleteTable, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     
@@ -135,13 +135,13 @@ public extension CTMediator {
     ///   - tableName: 表名
     ///   - sqlDataModel: 模型or字典
     /// - Returns: 添加成功
-    public func SQL_checkUpdateTableWithNewColumnName(tableName: String, sqlDataModel: Any) -> Bool?{
+    @objc public func SQL_checkUpdateTableWithNewColumnName(tableName: String, sqlDataModel: Any) -> Bool {
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "tableName": tableName,
             "sqlDataModel": sqlDataModel] as [AnyHashable: Any]
         
-        return performTarget(NYSqliteModuleName, action: NYSqliteCheckUpdateTableWithNewColumnName, params: params, shouldCacheTarget: false) as? Bool
+        return performTarget(NYSqliteModuleName, action: NYSqliteCheckUpdateTableWithNewColumnName, params: params, shouldCacheTarget: false) as? Bool ?? false
     }
     
     /// 批量操作增删改
@@ -153,7 +153,7 @@ public extension CTMediator {
     ///   - sqlTypes: 每一个操作数组
     ///   - useTransaction: 是否开启事务
     ///   - block: 操作结果
-    public func SQL_queueInDatabase(tableName: String, sqlDataModels: Any, whereConditions:[String], sqlTypes:[String], useTransaction:Bool, block:@escaping (Bool) -> Void){
+    @objc public func SQL_queueInDatabase(tableName: String, sqlDataModels: Any, whereConditions:[String], sqlTypes:[Int], useTransaction:Bool, block:@escaping (Bool) -> Void){
         
         var paramsArr = [[String:Any]]()
         if let models = sqlDataModels as? [Any]{
@@ -180,7 +180,7 @@ public extension CTMediator {
     }
     
     ///是否打印日志
-    public func SQL_logOpen(isOpen:Bool){
+    @objc public func SQL_logOpen(isOpen:Bool){
         let params = [
             kCTMediatorParamsKeySwiftTargetModuleName: NYSqliteModuleName,
             "isOpen": isOpen
